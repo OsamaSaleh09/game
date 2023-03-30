@@ -1,0 +1,354 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif
+}
+@font-face {
+   font-family:Cairo;
+   src :url("../fonts/Cairo.ttf")
+}
+body {
+    background-color: #0a3d62;
+    position: relative;
+    direction: rtl;
+}
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: #0a3d62;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #0a3d62;
+  border: 1px solid #fff
+}
+
+.control {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.774);
+    z-index: 4
+}  
+.control span,.control p {
+    font-size: 20px;
+    font-weight: normal;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0a3d62;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: capitalize;
+    text-align: center
+}
+.control p {
+    display: none
+}
+
+.cont {
+    width: 100%;
+    padding: 30px 0
+}
+.container {
+    width: 49%;
+    direction: rtl;
+    margin: auto;
+    padding: 5px 20px;
+    background-color: rgb(232, 232, 232);
+    border-radius: 10px;
+    overflow: hidden;
+    color: #00192a;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0px 5px 15px #00192a,
+        0px 0px 15px #00192a;
+    display: flex;
+    justify-content: flex-start
+}
+.container .name {
+    width: 40%;
+    display: inline-block;
+    text-align: right
+}
+
+.container .tries {
+    width: 30%;
+    text-align: right;
+    display: inline-block
+}
+.container .name span,.container .point span,.container .tries span {
+    color: rgb(159, 7, 7);
+    text-transform: capitalize;
+}
+.container .point {
+    width: 20%
+}
+.container .time{
+    width: 10%;
+    height: 100%;
+    color: #00192a;
+    background-color: rgb(232, 232, 232);
+    text-align: left;
+    font-weight: bold;
+    display: inline-block
+}
+.game-box {
+    display: flex;
+    width: 50%;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+.game-box .game {
+    height: 100px;
+    height: 100px;
+    transition: transform .7s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 100px;
+    margin: 0 10px 20px
+}
+.game-box .game .front {
+    background-color: rgb(232, 232, 232);
+    line-height: 100px;
+    text-align: center;
+    font-size: 80px;
+    font-weight: bold;
+    color: #00192a;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #00192a,
+        -5px -5px 10px #00192a
+}
+
+.game-box .game .back {
+    background-color: rgb(232, 232, 232);
+    transform: rotateY(180deg);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #00192a,
+        -5px 0px 10px #00192a
+}
+.game-box .game .back img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+.game-box .game .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden
+}
+
+.game-box .game.flip,
+.game-box .game.match{
+    transform: rotateY(180deg);
+    pointer-events: none
+}
+.game-box.noclick {
+    pointer-events: none
+}
+footer {
+    margin-bottom: 0;
+    direction: ltr;
+    padding: 2rem;
+    display: flex;
+    justify-content: center
+}
+footer p span {
+    padding-left: 5px
+}
+footer p,
+footer div{
+    width: 50%;
+}
+footer p {
+    color: #f8f2ff;
+    text-transform: capitalize;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center
+}
+footer div {
+    text-align: right
+}
+footer div ul {
+    list-style: none
+}
+footer div ul li {
+    display: inline-block;
+    background-color: #f8f2ff;
+    margin: 5px;
+    border-radius: 6px;
+    font-size: 1.3rem;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s
+}
+footer div ul li a {
+    transition: .3s
+}
+footer div ul li:nth-of-type(1) a {
+    color: #1877f2
+}
+footer div ul li:nth-of-type(2) a {
+    color: #0a66c2
+}
+footer div ul li:nth-of-type(3) a {
+    color: #333
+}
+footer div ul li:hover a {
+    color: #f8f2ff
+}
+footer div ul li:nth-of-type(1):hover {
+    background-color: #1877f2;
+}
+footer div ul li:nth-of-type(2):hover {
+    background-color: #0a66c2;
+}
+footer div ul li:nth-of-type(3):hover {
+    background-color: #333;
+}
+.cont-gn {
+    overflow: hidden
+}
+
+/* start load*/
+.loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top:0;
+    background-color: #003e72;
+    color: white;
+    z-index: 9999
+}
+.spinner {
+  width: 80px;
+  height: 80px;
+  background-color: #ffffff;
+  margin: 40vh auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.5s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+    0% { -webkit-transform: perspective(120px) }
+    50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+    100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+    0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+    } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+    } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+}
+/* end load*/
+
+
+@media (min-width: 700px) {
+    .game-box {
+        width: 50%;
+    }
+    .container {
+        width: 49%;
+    }
+}
+@media (max-width: 699px) {
+    .game-box {
+        width: 80%;
+    }
+    .container {
+        width: 79%;
+        font-size: 12px 
+    }
+    .time {
+        font-size: 12px
+    }
+    .game-box .game {
+        height: 60px;
+        transition: transform .7s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+        flex: 1 0 60px;
+        margin: 0 5px 10px
+    }
+    .game-box .game .front { 
+        font-size: 30px;
+        line-height: 60px
+    }
+     footer{
+        text-align: center
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    footer p,
+    footer div {
+        width: 100%;
+        text-align: center;
+        margin: 10px
+    }
+    footer p {
+        justify-content: center
+    }
+}
+
+@media (min-height: 900px) {
+    .game-box {
+        width: 80%;
+    }
+    .container {
+         width: 79%;
+        font-size: 16px 
+    }
+    .control span {
+        font-size: 40px;
+        letter-spacing: 0px
+    }
+    .control p {
+        font-size: 40px;
+        letter-spacing: 0px
+    }
+    .time {
+        font-size: 22px
+    }
+    .game-box .game {
+        height: 100px;
+        transition: transform .7s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+        flex: 1 0 100px;
+        margin: 0 10px 15px
+    }
+    .game-box .game .front { 
+        font-size: 60px;
+        line-height: 100px
+    }
+    .design {
+        font-size: 22px
+    }
+}
