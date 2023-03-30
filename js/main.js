@@ -37,7 +37,9 @@ function timeBad(){
         setTimeout(()=> {
             document.getElementById("clock").pause();
             document.querySelector(".control").style.display= "block";
-            start.innerHTML= "النقاط: " + point.innerHTML+ "<br>" + " انتهت اللعبة .. حاول مره اخرى";
+            nice.innerHTML= "النقاط: " + point.innerHTML+ "<br>" + " انتهت اللعبة .. حاول مره اخرى";
+            nice.style.display="block";
+            start.style.display="none";
             document.getElementById("false").play();
             for (var i = 0 ; i <= 19 ; i++){
                 document.getElementsByClassName("game")[i].classList.remove("match");
@@ -139,7 +141,7 @@ function checked(firstBlock, secondBlock) {
             if (point.innerHTML == 10) {
                 document.querySelector(".control").style.display= "block";
                 nice.innerHTML= "النقاط: " + point.innerHTML + "<br>" + " ممتاز " + "ابدأ مرة اخرى";
-                nice.style.padding = "10px 100px";
+                document.getElementById("clock").pause();
                 nice.style.display = "block";
                 start.style.display = "none"
                 document.getElementById("true").play();
