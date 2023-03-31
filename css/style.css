@@ -264,22 +264,12 @@ footer div ul li:nth-of-type(3):hover {
     }
 }
 /* end load*/
-
-
-@media (min-width: 700px) {
+@media (max-width: 768px) {
     .game-box {
-        width: 50%;
+        width: 90%;
     }
     .container {
-        width: 49%;
-    }
-}
-@media (max-width: 699px) {
-    .game-box {
-        width: 80%;
-    }
-    .container {
-        width: 80%;
+        width: 90%;
         font-size: 12px 
     }
     .time {
@@ -316,7 +306,7 @@ footer div ul li:nth-of-type(3):hover {
     }
 }
 
-@media (min-height: 900px) {
+/* @media (min-height: 900px) {
     .game-box {
        width: 90%;
     }
@@ -340,4 +330,4 @@ footer div ul li:nth-of-type(3):hover {
         font-size: 60px;
         line-height: 100px
     }
-}
+} */
