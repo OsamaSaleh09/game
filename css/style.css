@@ -264,7 +264,7 @@ footer div ul li:nth-of-type(3):hover {
     }
 }
 /* end load*/
-@media (max-width: 768px) {
+@media (max-width: 568px) {
     .game-box {
         width: 90%;
     }
