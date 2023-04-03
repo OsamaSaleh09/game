@@ -1,18 +1,9 @@
 /*globl, document*/
 var start = document.querySelector(".control span"),
     nice = document.querySelector(".control p"),
-    text = document.querySelector(".name span"),
     point = document.querySelector(".point span"),
     triesElement = document.querySelector(".tries span");
 start.onclick = function () {
-    "use strict";
-    var nameValue = prompt("ما هو اسمك");
-    if (nameValue == "" || nameValue == null) {
-        text.innerHTML = localStorage.getItem("namestor");
-    } else {
-        localStorage.setItem("namestor",nameValue);
-        text.innerHTML = localStorage.getItem("namestor");
-    }
     document.querySelector(".control").style.display= "none";
     playTime();
     point.innerHTML = 0;
@@ -132,7 +123,6 @@ function checked(firstBlock, secondBlock) {
     if (firstBlock.dataset.person === secondBlock.dataset.person) {
         firstBlock.classList.remove("flip");
         secondBlock.classList.remove("flip");
-        
         firstBlock.classList.add("match");
         secondBlock.classList.add("match");
         setTimeout(()=> {
